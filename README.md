@@ -38,10 +38,10 @@ Below I cover the list of test scenarios together with bugs, observations, or po
 #### Filtering
 
 1. Should display data based on filters -> When applying a filter on a smaller resolution (e.g: 1280 x 720 pixels) the page is updated with new articles but the page is scrolled up and the list of articles is not visible anymore - **low priority, low severity**
-1. Should clear search term when applying filters -> Since it's not possible to search while filters are applied, the search bar should be cleared when applying filters, otherwise the user might get confused on the provenience of the data that is displayed - **low priority, low severity**
    1. Filters from the same category
    1. Filters from different categories
    1. Multiple filters
+1. Should clear search term when applying filters -> Since it's not possible to search while filters are applied, the search bar should be cleared when applying filters, otherwise the user might get confused on the provenience of the data that is displayed - **low priority, low severity**
 1. "Clear all filters" should reset search
 1. Applied filter should be visible and number of total applied filters should update correctly
 1. Removing an applied filter should update the data correctly
@@ -99,7 +99,8 @@ When accessing a page initially (or after refresh) when clicking on the next pag
 
 1. Access https://www.morressier.com/event/acsspring2020expo/5e733c5acde2b641284a7e27?page=3
 1. Press on page 4
-   Note:
+
+Note:
 
 - if the issue doesn't reproduce try to refresh the page before step #2.
 - the issue can also be reproduced when pressing "Next"

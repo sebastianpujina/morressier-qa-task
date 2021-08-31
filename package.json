@@ -1,0 +1,15 @@
+{
+  "name": "morressier-qa-task",
+  "version": "1.0.0",
+  "description": "This repository covers a list of test scenarios written for the [Morressier event page](https://www.morressier.com/event/5e733c5acde2b641284a7e27). Some of them have been automated using [Cypress](https://www.cypress.io/).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/sebastianpujina/morressier-qa-task.git"
+  },
+  "homepage": "https://github.com/sebastianpujina/morressier-qa-task#readme",
+  "devDependencies": {
+    "@testing-library/cypress": "^8.0.0",
+    "cypress": "^8.3.1",
+    "randomstring": "^1.2.1"
+  }
+}
