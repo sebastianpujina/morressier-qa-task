@@ -23,7 +23,7 @@ export const event = {
         value: 'https://storage.googleapis.com/dl.morressier.com/acs/SciMtng_ACSNMSp2020_FAQ_M3120_Final.pdf'
       }
     ],
-    organizer: 'American Chemical Society'
+    host: 'American Chemical Society'
   },
   article: {
     title: 'Chromatographic behavior of bivalent bispecific antibodies on hydrophobic interaction chromatography columns',

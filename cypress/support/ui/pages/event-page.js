@@ -33,8 +33,8 @@ export class EventPage {
     return cy.visit('/');
   };
 
-  accessHostPage = (organizer) => {
-    return cy.contains(organizer).click();
+  accessHostPage = (host) => {
+    return cy.contains(host).click();
   };
 
   accessArticle = (title) => {
@@ -46,7 +46,7 @@ export class EventPage {
     return cy.get(this.searchButton).click();
   };
 
-  getFirstArticleTitle = () => {
+  getTitleForFirstArticle = () => {
     return cy
       .get(this.articleTitleText)
       .eq(0)
@@ -96,7 +96,7 @@ export class EventPage {
     return cy.get(this.searchForKeywordsInput).type(keyword);
   };
 
-  showMoreOptions = () => {
+  showMoreFilterOptions = () => {
     return cy.get(this.keywordsCategory).within(() => {
       return cy.get(this.showMoreOptionsLink).click();
     });
@@ -129,7 +129,7 @@ export class EventPage {
     cy.contains(subTitle).should('be.visible');
   };
 
-  checkUrlIsCorrect = (url) => {
+  checkExternalUrlIsCorrect = (url) => {
     const { label, value } = url;
 
     cy.findByRole('link', { name: label }).should('have.attr', 'href', value).and('have.attr', 'target', '_blank');
@@ -141,15 +141,14 @@ export class EventPage {
   };
 
   checkArticleContainsCorrectData = (data) => {
-    const { title, author, keyword, additionalNumberOfKeywords, views, downloads } = data;
+    const { title, author, keyword, additionalNumberOfKeywords } = data;
 
     cy.get(this.articlePreviewImage).should('be.visible');
     cy.get(this.articleTitleText).should('contain', title);
     cy.contains(author).should('be.visible');
     cy.contains(keyword).should('be.visible');
     cy.contains(additionalNumberOfKeywords).should('be.visible');
-    cy.get(this.articleStatsText).should('contain', views);
-    cy.get(this.articleStatsText).should('contain', downloads);
+    cy.get(this.articleStatsText).should('be.be.visible');
   };
 
   checkArticlePageIsCorrect = (title) => {
@@ -157,7 +156,7 @@ export class EventPage {
     cy.contains(title).should('be.visible');
   };
 
-  checkSearchResults = (numberOfResults, title) => {
+  checkSearchResultsAreCorrect = (numberOfResults, title) => {
     const numberOfArticles = numberOfResults < 24 ? numberOfResults : 24;
 
     cy.contains(`${numberOfResults.toLocaleString()} submissions`).should('be.visible');
@@ -187,7 +186,7 @@ export class EventPage {
     cy.contains(`${numberOfResults.toLocaleString()} submissions`).should('be.visible');
   };
 
-  checkFilterOptionsWereUpdated = (option) => {
+  checkFilterOptionsAreUpdated = (option) => {
     cy.get(this.keywordsCategory).within(() => {
       cy.get(this.filterOption).should('have.length', 1).and('contain', option.toLowerCase());
     });

@@ -11,7 +11,7 @@ describe('Event page', () => {
 
   /**
    *  Notes:
-   *  I made the assuption than data can be created via API or directly into db as a prerequisite and is know before the test
+   *  I made the assumption that data can be created via API or directly into db as a prerequisite and is know before the test
    */
   describe('Overview', () => {
     it('Check that event information is correct', () => {
@@ -22,16 +22,16 @@ describe('Event page', () => {
     event.overview.externalUrls.forEach((url) => {
       it(`Check that "${url.label}" url is correct and opens in new tab`, () => {
         //Assert
-        eventPage.checkUrlIsCorrect(url);
+        eventPage.checkExternalUrlIsCorrect(url);
       });
     });
 
     it('Check that host page is correct and can be accessed', () => {
       //Act
-      eventPage.accessHostPage(event.overview.organizer);
+      eventPage.accessHostPage(event.overview.host);
 
       //Assert
-      eventPage.checkHostPageIsCorrect(event.overview.organizer);
+      eventPage.checkHostPageIsCorrect(event.overview.host);
     });
   });
 
@@ -56,18 +56,18 @@ describe('Event page', () => {
       eventPage.search(event.article.title);
 
       //Assert
-      eventPage.checkSearchResults(1, event.article.title);
+      eventPage.checkSearchResultsAreCorrect(1, event.article.title);
     });
 
     //Demo of different approach in case we don't know the data beforehand
     it('Check that searching works correctly - v2', () => {
       //Arrange
-      eventPage.getFirstArticleTitle().then((title) => {
+      eventPage.getTitleForFirstArticle().then((title) => {
         //Act
         eventPage.search(title);
 
         //Assert
-        eventPage.checkSearchResults(1, title);
+        eventPage.checkSearchResultsAreCorrect(1, title);
       });
     });
 
@@ -78,11 +78,11 @@ describe('Event page', () => {
       //Act
       eventPage.clearSearch().then((numberOfSubmissions) => {
         //Assert
-        eventPage.checkSearchResults(numberOfSubmissions, event.article.title);
+        eventPage.checkSearchResultsAreCorrect(numberOfSubmissions, event.article.title);
       });
     });
 
-    it('Check that no articles and no pagination is visible when no results are returned', () => {
+    it('Check that articles and pagination are not visible when no results are returned', () => {
       //Act
       eventPage.search(randomstring.generate(10));
 
@@ -131,18 +131,18 @@ describe('Event page', () => {
       eventPage.searchForKeywordFilterOption(event.article.keyword);
 
       //Assert
-      eventPage.checkFilterOptionsWereUpdated(event.article.keyword);
+      eventPage.checkFilterOptionsAreUpdated(event.article.keyword);
     });
 
     it('Check that "Show 10 more" works correctly', () => {
       //Act
-      eventPage.showMoreOptions();
+      eventPage.showMoreFilterOptions();
 
       //Assert
       eventPage.checkOptionListExpanded();
     });
 
-    it('Check that filters are not lost when page is refreshed', () => {
+    it('Check that filters are still applied when page is refreshed', () => {
       //Arrange
       eventPage.applyFilter().then((numberOfSubmissions) => {
         //Act

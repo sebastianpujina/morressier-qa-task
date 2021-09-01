@@ -25,13 +25,13 @@ Below I cover the list of test scenarios together with bugs, observations, or po
 
 #### Searching
 
-1. Searching should return correct data based on the search term -> When searching for "chr" or "chrom" which is part of the title from the first article only 1 article is returned and it's not the first one, this implies that searching is not optimized. - **low priority, medium severity - the user might not be able to find what it needs**
+1. Searching should return correct data based on the search term -> When searching for "chr" or "chrom" which is part of the title from the first article only 1 article is returned and it's not the first one, this implies that searching is not optimized. - **low priority, medium severity - the user might not be able to find what he or she needs**
    1. The following search terms have been used for testing: whole worlds, part of words, authors, keywords from articles, numbers, special characters etc.
 1. Should display the number of submissions -> A total number of submissions can provide useful information for the user, e.g: 47/11,710 - **low priority, low severity**
 1. Text should fit correctly in the search input -> The search icon overlaps text if it's too long - **low priority, low severity**
-1. Search button -> The Mouse icon doesn't turn into "button mode" when hovering the search icon, the search icon is a bit too small and can be hard to click - **low priority, low severity**
+1. Search button -> The mouse icon doesn't turn into "button mode" when hovering the search icon, the search icon is a bit too small and can be hard to click - **low priority, low severity**
 1. "Clear search" link should reset search
-1. When no articles are found for a search term there should be no articles and the pagination should disappear
+1. When no articles are found for a search term, no articles should be displayed and the pagination should disappear
 1. The searching should not be lost if the page is refreshed
 1. The searching should not be lost when navigating back from an article
 
@@ -41,7 +41,7 @@ Below I cover the list of test scenarios together with bugs, observations, or po
    1. Filters from the same category
    1. Filters from different categories
    1. Multiple filters
-1. Should clear search term when applying filters -> Since it's not possible to search while filters are applied, the search bar should be cleared when applying filters, otherwise the user might get confused on the provenience of the data that is displayed - **low priority, low severity**
+1. Should clear search term when applying filters -> Since it's not possible to search while filters are applied, the search bar should be cleared when applying filters, otherwise the user might get confused about the provenience of the data that is displayed - **low priority, low severity**
 1. "Clear all filters" should reset search
 1. Applied filter should be visible and number of total applied filters should update correctly
 1. Removing an applied filter should update the data correctly
@@ -75,9 +75,9 @@ Below I cover the list of test scenarios together with bugs, observations, or po
 
 ### Notes
 
-- Even if most bugs or improvements are marked as low priority, there are a lot of them that take a small effort to fix or apply them and could offer the user a better experience overall.
-- The layout of the page is very good overall and can be used easily but some improvements can be made, for example, the article cards could align better with search&filters and event details, search bar can be longer when the resolution permits it, number of articles per page should be configurable, this way it will be easier to browse through the articles on mobile.
-- Accessibility testing failed for articles because they can't be accessed/navigated via tab + enter
+- Even if most bugs or improvements are marked as low priority, there are a lot of them that require a small effort to be fixed or applied and could offer the user a better experience overall.
+- The layout of the page is very good overall and can be used easily but some improvements can be made, for example, the article cards could align better with search&filters and event details, the search bar can be longer when the resolution permits it, the number of articles per page should be configurable (this way it will be easier to browse through the articles on mobile).
+- Accessibility testing failed for articles because they can't be accessed or navigated via tab + enter.
 - I was expecting to be possible to search with filters applied but instead the filters are removed.
 
 ## Example of a bug report
